@@ -16,7 +16,7 @@ const PokemonProfile = ({ pokemonID }) => {
         <ConsumerAPI>
             {
                 ({ getPokemon }) => {
-                    const Profile = setData(PokemonView, getPokemon, pokemonID, true);
+                    const Profile = setData(PokemonView, getPokemon, pokemonID);
                     return <Profile />
                 }
             }

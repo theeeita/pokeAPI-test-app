@@ -29,12 +29,11 @@ export default class PokEAPI {
      * Получает данные о покемоне по его id, возвращает результат в виде объекта.
      * По умолчанию получает первого покемона.
      * @param {Number} id Идентификатор нужного покемона
-     * @param {Boolean} full Если true, вернет подробную информацию, false - только id, name, image (для главой страницы)
      * @public
      */
-    getPokemon = async (id = 1, full = false) => {
+    getPokemon = async (id = 1) => {
         const pokemon = await this._fetchData(`https://pokeapi.co/api/v2/pokemon/${ id }/`);
-        return (full) ? this._formatPokemon(pokemon) : { id: +pokemon.id, name: pokemon.name, image: pokemon["sprites"]["other"]["official-artwork"]["front_default"] }
+        return this._formatPokemon(pokemon);
     }
 
     /**
@@ -48,7 +47,10 @@ export default class PokEAPI {
             return await response.json()
         }
         throw new Error("Ошибка при запросе данных");
-    }
+		}
+		
+		_getPokemonImage = pokemon => pokemon["sprites"]["other"]["official-artwork"]["front_default"];
+		
 
     /**
      * Собирает необходимую информацию о покемоне и возвращает в виде объекта.
@@ -63,7 +65,7 @@ export default class PokEAPI {
         return {
             id: pokemon.id,
             name: pokemon.name,
-            image: pokemon["sprites"]["other"]["official-artwork"]["front_default"],
+            image: this._getPokemonImage(pokemon),
             abilities,
             locations,
             species,
@@ -104,6 +106,8 @@ export default class PokEAPI {
             return item["location_area"]["name"];
         });
 
+				// На 2 и 3 форму любого покемона приходят пустые массивы, но вроде они встречаются там же, где и 1.
+				// Это не лучшее решение, но разобраться с этим мне не удалось.
         if(!locations.length) {
             const temp = await this.getPokemon(pokemon.id - 1, true);
             locations.push(temp.locations);
@@ -147,9 +151,3 @@ export default class PokEAPI {
         }
     }
 }
-
-// const p = new PokEAPI();
-//
-// p.getPokemons(1, 2).then(res => {
-//    console.log(res);
-// });

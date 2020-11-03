@@ -3,7 +3,8 @@ import "./pokemon-card.scss";
 
 /**
  * Карточка покемона на главной странице, которая отображает имя, картику покемона.
- * @param {Number} pokemonID id нужного покемона
+ * @param {String} image url картинки покемона
+ * @param {String} name имя покемона
  * @constructor
  */
 const PokemonCard  = ({ image, name }) => {
