@@ -1,0 +1,14 @@
+.pokemon-cards-list {
+  padding: 0 10px;
+  flex: 1 0 auto;
+  .pokemon-list {
+    width: 100%;
+    ul {
+      justify-content: flex-start;
+    }
+    &__item {
+      width: 20%;
+      padding: 5px;
+    }
+  }
+}

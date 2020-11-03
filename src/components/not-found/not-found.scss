@@ -1,0 +1,17 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  &__message {
+    margin: 20px 0;
+  }
+  &__image {
+    width: 50%;
+    height: 520px;
+    background: url("../../assets/images/team_rocket.png");
+    background-size: cover;
+  }
+}
