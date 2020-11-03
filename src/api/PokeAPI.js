@@ -20,7 +20,7 @@ export default class PokEAPI {
            return {
                id: +item.id,
                name: item.name,
-               image: item["sprites"]["other"]["official-artwork"]["front_default"]
+               image: this._getPokemonImage(item)
            }
         });
     }
@@ -49,6 +49,9 @@ export default class PokEAPI {
         throw new Error("Ошибка при запросе данных");
 		}
 		
+		/** Возвращает url картинки покемона
+		 * @param {Object} pokemon Исходный объект с данными о покемоне
+		 */
 		_getPokemonImage = pokemon => pokemon["sprites"]["other"]["official-artwork"]["front_default"];
 		
 
