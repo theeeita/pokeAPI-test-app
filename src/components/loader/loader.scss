@@ -1,0 +1,15 @@
+.loader {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	h3 {
+		text-align: center;
+		color: #F7E901;
+	}
+	&__image {
+		background: url("../../assets/images/loader.gif");
+		background-size: cover;
+		width: 350px;
+		height: 250px;
+	}
+}

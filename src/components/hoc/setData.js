@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loader from "../loader";
 import { NotFoundPage } from "../pages";
 
 /**
@@ -12,22 +13,25 @@ const setData = (Element, getData, ...args) => {
     return class extends Component {
         state = {
             data: null,
-            error: false,
+						error: false,
+						isLoading: true,
         }
 
         componentDidMount() {
             getData(...args).then(data => {
-                this.setState({ data });
+                this.setState({ data, isLoading: false });
             }).catch(err => {
-               this.setState({ error: true })
+               this.setState({ error: true, isLoading: false })
             });
         }
 
         render() {
 
-            const { data, error } = this.state;
+            const { data, error, isLoading } = this.state;
 
-            if(error) return <NotFoundPage />;
+						if(error) return <NotFoundPage />;
+						
+						if(isLoading) return <Loader />
 
             return (data) ? <Element data = { data } { ...this.props } /> : null;
         }
