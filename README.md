@@ -5,13 +5,13 @@
 Проект написан на React в учебных целях. Адаптивность выполнена на `flexbox`, без использования сетки. В будущем будет обновлен на проект с более сложной и продробной структурой.
 <br>
 ### **Структура проекта:**<br>
-  * **Главная страница** [Пример](https://github.com/theeeita/pokeAPI-test-app/blob/main/index.png)<br>
+  * **Главная страница** [[Пример]](https://github.com/theeeita/pokeAPI-test-app/blob/main/index.png)<br>
     Блок с карточками покемонов, которые содержат `имя` и `изображение`. Карточки являются ссылками на `страницу-профиль` покемона.<br>
- * **Список** [Пример](https://github.com/theeeita/pokeAPI-test-app/blob/main/list.png)<br>
+ * **Список** [[Пример]](https://github.com/theeeita/pokeAPI-test-app/blob/main/list.png)<br>
     Список из `имен` покемонов, каждый элемент списка отображает имя и является ссылкой на `страницу-профиль` покемона.<br>
-* **Страница-профиль** [Пример](https://github.com/theeeita/pokeAPI-test-app/blob/main/profile.png)<br>
+* **Страница-профиль** [[Пример]](https://github.com/theeeita/pokeAPI-test-app/blob/main/profile.png)<br>
    Подробная информация о покемоне (описание ниже).<br>
-* **Дополнительные страницы** [Пример](https://github.com/theeeita/pokeAPI-test-app/blob/main/not_found.png)<br>
+* **Дополнительные страницы** [[Пример]](https://github.com/theeeita/pokeAPI-test-app/blob/main/not_found.png)<br>
   Страница ошибки (при неверном `url`).<br>
   
 ### **Структура страницы-профиля:**<br>
